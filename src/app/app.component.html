@@ -5,7 +5,7 @@
     <ng-container *ngFor="let card of trello_json.cards">
         <tr *ngIf="!card.closed">
             <td>{{card.name}}</td>
-            <td><span *ngIf="card.desc" class="description">{{card.desc}}</span></td>
+            <td><span *ngIf="card.desc" class="description" Markdown>{{card.desc}}</span></td>
             <td>
                 <ng-container *ngFor="let list of trello_json.lists">
                     <ng-container *ngIf="list.id === card.idList">
