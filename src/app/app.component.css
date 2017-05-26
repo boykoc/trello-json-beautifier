@@ -1,3 +1,6 @@
+body, h1, table {
+    font-family: arial, sans-serif;
+}
 .description {
     display: inline-block;
 }
