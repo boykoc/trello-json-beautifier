@@ -1,13 +1,14 @@
 <h1>
   {{title}}
 </h1>
+<input type="file" id="json-file-input" (change)="onChange($event)">
 <table>
-    <ng-container *ngFor="let card of trello_json.cards">
+    <ng-container *ngFor="let card of trello_json.data.cards" [(ngModel)]="trello_json.data" ngDefaultControl>
         <tr *ngIf="!card.closed">
             <td>{{card.name}}</td>
             <td><span *ngIf="card.desc" class="description" Markdown>{{card.desc}}</span></td>
             <td>
-                <ng-container *ngFor="let list of trello_json.lists">
+                <ng-container *ngFor="let list of trello_json.data.lists">
                     <ng-container *ngIf="list.id === card.idList">
                         <span class="list"><strong>List:</strong> {{list.name}}</span>
                     </ng-container>
