@@ -1,3 +1,18 @@
 <h1>
   {{title}}
 </h1>
+<table>
+    <ng-container *ngFor="let card of trello_json.cards">
+        <tr *ngIf="!card.closed">
+            <td>{{card.name}}</td>
+            <td><span *ngIf="card.desc" class="description">{{card.desc}}</span></td>
+            <td>
+                <ng-container *ngFor="let list of trello_json.lists">
+                    <ng-container *ngIf="list.id === card.idList">
+                        <span class="list"><strong>List:</strong> {{list.name}}</span>
+                    </ng-container>
+                </ng-container>
+            </td>
+        </tr>
+    </ng-container>
+</table>
